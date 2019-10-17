@@ -83,7 +83,7 @@ class minio::config (
     content => $resulting_configuration,
     owner   => $owner,
     group   => $group,
-    mode    => '0644',
+    mode    => '0600',
   }
 
 }
