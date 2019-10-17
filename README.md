@@ -40,35 +40,35 @@ include ::minio
 
 ```puppet
 class { 'minio':
-    package_ensure => 'present',
-    manage_user => true,
-    manage_group => true,
-    manage_home => true,
-    owner => 'minio',
-    group => 'minio',
-    home => '/home/minio',
-    version => 'RELEASE.2017-05-05T01-14-51Z',
-    checksum => '59cd3fb52292712bd374a215613d6588122d93ab19d812b8393786172b51d556',
-    checksum_type => 'sha256',
-    configuration_directory => '/etc/minio',
-    installation_directory => '/opt/minio',
-    storage_root => '/var/minio',
-    log_directory => '/var/log/minio',
-    listen_ip => '127.0.0.1',
-    listen_port => 9000,
-    configuration => {
-        'credential' => {
-          'accessKey' => 'ADMIN',
-          'secretKey' => 'PASSWORD',
-        },
-        'region' => 'us-east-1',
-        'browser' => 'on',
+  package_ensure          => 'present',
+  manage_user             => true,
+  manage_group            => true,
+  manage_home             => true,
+  owner                   => 'minio',
+  group                   => 'minio',
+  home                    => '/home/minio',
+  version                 => 'RELEASE.2019-10-12T01-39-57Z',
+  checksum                => '42afc5da93e28341fd11a6491b57800fbfc53210ad156a2330afb09c9d71644f',
+  checksum_type           => 'sha256',
+  configuration_directory => '/etc/minio',
+  installation_directory  => '/opt/minio',
+  storage_root            => '/var/minio',
+  log_directory           => '/var/log/minio',
+  listen_ip               => '127.0.0.1',
+  listen_port             => 9000,
+  configuration           => {
+    'credential' => {
+      'accessKey' => 'ADMIN',
+      'secretKey' => 'PASSWORD',
     },
-    manage_service => true,
-    service_template => 'minio/systemd.erb',
-    service_path => '/lib/systemd/system/minio.service',
-    service_provider => 'systemd',
-    service_mode => '0644',
+    'region'     => 'us-east-1',
+    'browser'    => 'on',
+  },
+  manage_service          => true,
+  service_template        => 'minio/systemd.erb',
+  service_path            => '/lib/systemd/system/minio.service',
+  service_provider        => 'systemd',
+  service_mode            => '0644',
 }
 ```
 
@@ -76,12 +76,12 @@ class { 'minio':
 
 ```puppet
 class { 'minio::user':
-    manage_user => true,
-    manage_group => true,
-    manage_home => true,
-    owner => 'minio',
-    group => 'minio',
-    home => '/home/minio',
+  manage_user  => true,
+  manage_group => true,
+  manage_home  => true,
+  owner        => 'minio',
+  group        => 'minio',
+  home         => '/home/minio',
 }
 ```
 
@@ -89,22 +89,22 @@ class { 'minio::user':
 
 ```puppet
 class { 'minio::install':
-    package_ensure => 'present',
-    owner => 'minio',
-    group => 'minio',
-    version => 'RELEASE.2017-05-05T01-14-51Z',
-    checksum => '59cd3fb52292712bd374a215613d6588122d93ab19d812b8393786172b51d556',
-    checksum_type => 'sha256',
+    package_ensure         => 'present',
+    owner                  => 'minio',
+    group                  => 'minio',
+    version                => 'RELEASE.2019-10-12T01-39-57Z',
+    checksum               => '42afc5da93e28341fd11a6491b57800fbfc53210ad156a2330afb09c9d71644f',
+    checksum_type          => 'sha256',
     installation_directory => '/opt/minio',
-    storage_root => '/var/minio',
-    log_directory => '/var/log/minio',
-    listen_ip => '127.0.0.1',
-    listen_port => 9000,
-    manage_service => true,
-    service_template => 'minio/systemd.erb',
-    service_path => '/lib/systemd/system/minio.service',
-    service_provider => 'systemd',
-    service_mode => '0644',
+    storage_root           => '/var/minio',
+    log_directory          => '/var/log/minio',
+    listen_ip              => '127.0.0.1',
+    listen_port            => 9000,
+    manage_service         => true,
+    service_template       => 'minio/systemd.erb',
+    service_path           => '/lib/systemd/system/minio.service',
+    service_provider       => 'systemd',
+    service_mode           => '0644',
 }
 ```
 
@@ -112,7 +112,7 @@ class { 'minio::install':
 
 ```puppet
 class { 'minio::service':
-    manage_service => true,
+    manage_service   => true,
     service_provider => 'systemd',
 }
 ```
@@ -121,19 +121,19 @@ class { 'minio::service':
 
 ```puppet
 class { 'minio::config':
-    configuration => {
-        'credential' => {
-          'accessKey' => 'ADMIN',
-          'secretKey' => 'PASSWORD',
-        },
-        'region' => 'us-east-1',
-        'browser' => 'on',
+    configuration          => {
+      'credential' => {
+        'accessKey' => 'ADMIN',
+        'secretKey' => 'PASSWORD',
+      },
+      'region'     => 'us-east-1',
+      'browser'    => 'on',
     },
-    owner => 'minio',
-    group => 'minio',
+    owner                  => 'minio',
+    group                  => 'minio',
     installation_directory => '/opt/minio',
-    storage_root => '/var/minio',
-    log_directory => '/var/log/minio',
+    storage_root           => '/var/minio',
+    log_directory          => '/var/log/minio',
 }
 ```
 

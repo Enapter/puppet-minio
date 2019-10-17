@@ -48,13 +48,12 @@ class minio::config (
   ) {
 
   $default_configuration = {
-    'version' => '19',
+    'version' => '33',
     'credential' => {
       'accessKey' => 'admin',
       'secretKey' => 'password',
     },
-    'region' => 'us-east-1',
-    'browser' => 'on',
+    'region' => '',
     'logger' => {
       'console' => {
         'enable' => true,

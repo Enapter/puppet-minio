@@ -6,22 +6,20 @@ minio::manage_home: true
 minio::owner: 'minio'
 minio::group: 'minio'
 minio::home: ~
-minio::base_url: 'https://dl.minio.io/server/minio/release'
-minio::version: 'RELEASE.2017-09-29T19-16-56Z'
-minio::checksum: 'b7707b11c64e04be87b4cf723cca5e776b7ed3737c0d6b16b8a3d72c8b183135'
+minio::base_url: 'https://dl.min.io/server/minio/release'
+minio::version: 'RELEASE.2019-10-12T01-39-57Z'
+minio::checksum: '42afc5da93e28341fd11a6491b57800fbfc53210ad156a2330afb09c9d71644f'
 minio::checksum_type: 'sha256'
 minio::configuration_directory: '/etc/minio'
 minio::installation_directory: '/opt/minio'
 minio::storage_root: '/var/minio'
 minio::log_directory: '/var/log/minio'
 minio::configuration:
-  'version': '19'           # Depends on used Minio release
+  'version': '33'           # Depends on used Minio release
   'credential':
     'accessKey': 'ADMIN'
     'secretKey': 'PASSWORD'
-  'region': 'us-east-1'
-  'browser': 'on'
-minio::listen_ip: 127.0.0.1
+minio::listen_ip: '127.0.0.1'
 minio::listen_port: 9000
 minio::manage_service: true
 minio::service_template: 'minio/systemd.erb'
