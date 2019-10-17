@@ -19,6 +19,7 @@ minio::configuration:
   'credential':
     'accessKey': 'ADMIN'
     'secretKey': 'PASSWORD'
+  'browser': 'on'
 minio::listen_ip: '127.0.0.1'
 minio::listen_port: 9000
 minio::manage_service: true

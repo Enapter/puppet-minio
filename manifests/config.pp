@@ -53,13 +53,14 @@ class minio::config (
       'accessKey' => 'admin',
       'secretKey' => 'password',
     },
-    'region' => '',
-    'logger' => {
+    'region'  => '',
+    'browser' => 'on',
+    'logger'  => {
       'console' => {
         'enable' => true,
       },
-      'file' => {
-        'enable' => true,
+      'file'    => {
+        'enable'   => true,
         'filename' => "${log_directory}/minio.log",
       },
     },
