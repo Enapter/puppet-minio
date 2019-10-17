@@ -145,8 +145,8 @@ class minio::install (
       source        => $source_url,
       checksum      => $checksum,
       checksum_type => $checksum_type,
+      mode          => 0700,
       notify        => [
-        Exec["permissions:${$installation_directory}/minio"],
         Service['minio']
       ],
     }
@@ -160,12 +160,6 @@ class minio::install (
 
   exec { "permissions:${installation_directory}":
     command     => "chown -Rf ${owner}:${group} ${installation_directory}",
-    path        => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin',
-    refreshonly => true,
-  }
-
-  exec { "permissions:${$installation_directory}/minio":
-    command     => "chmod +x ${$installation_directory}/minio",
     path        => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin',
     refreshonly => true,
   }
