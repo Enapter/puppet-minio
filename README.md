@@ -23,7 +23,7 @@ with default settings, or customize all settings to your liking.
   - [lwf-remote_file][lwf-remote_file],
 - it manages a user and group `minio`
 - it manages the Minio directory (`/opt/minio`) and the storage (`/var/minio`)
-- it install a `minio` service listening on port `3000`
+- it install a `minio` service listening on port `9000`
 
 ### Beginning with Minio
 
@@ -55,7 +55,7 @@ class { 'minio':
     storage_root => '/var/minio',
     log_directory => '/var/log/minio',
     listen_ip => '127.0.0.1',
-    listen_port => '9000',
+    listen_port => 9000,
     configuration => {
         'credential' => {
           'accessKey' => 'ADMIN',
@@ -99,7 +99,7 @@ class { 'minio::install':
     storage_root => '/var/minio',
     log_directory => '/var/log/minio',
     listen_ip => '127.0.0.1',
-    listen_port => '9000',
+    listen_port => 9000,
     manage_service => true,
     service_template => 'minio/systemd.erb',
     service_path => '/lib/systemd/system/minio.service',
