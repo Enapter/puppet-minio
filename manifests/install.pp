@@ -145,7 +145,7 @@ class minio::install (
       source        => $source_url,
       checksum      => $checksum,
       checksum_type => $checksum_type,
-      mode          => 0700,
+      mode          => '0700',
       notify        => [
         Service['minio']
       ],
