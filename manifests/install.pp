@@ -146,6 +146,8 @@ class minio::install (
       checksum      => $checksum,
       checksum_type => $checksum_type,
       mode          => '0700',
+      owner         => $owner,
+      group         => $group,
       notify        => [
         Service['minio']
       ],
