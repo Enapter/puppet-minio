@@ -13,6 +13,9 @@ Group=<%= @group %>
 
 ExecStart=<%= @installation_directory %>/minio server --address <%= @listen_ip %>:<%= @listen_port %> --config-dir <%= @configuration_directory %> <%= @storage_root %>
 
+StandardOutput=journal+console
+StandardError=inherit
+
 # Let systemd restart this service always
 Restart=always
 
